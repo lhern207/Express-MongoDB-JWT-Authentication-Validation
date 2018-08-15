@@ -8,7 +8,7 @@ const {auth} = require('./middleware/auth.js');
 const app = express();
 const db_url = 'mongodb://localhost:27017/auth';
 mongoose.Promise = global.Promise;
-mongoose.connect(db_url);
+mongoose.connect(process.env.MONGODB_URI || db_url);
 
 app.use(bodyParser.json());
 app.use(cookieParser());
